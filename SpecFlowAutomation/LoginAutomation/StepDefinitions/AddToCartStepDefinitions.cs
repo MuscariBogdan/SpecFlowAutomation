@@ -22,7 +22,7 @@ namespace LoginAutomation.StepDefinitions
             loginPage = new LoginPage(driver);
 
             loginPage.NavigateToLoginPage();
-            loginPage.EnterUsernameAndPassword("standard_user", "secret_sauce");
+            loginPage.Login("standard_user", "secret_sauce");
             loginPage.ClickLoginButton();
 
             Thread.Sleep(2000);
@@ -45,7 +45,7 @@ namespace LoginAutomation.StepDefinitions
         public void WhenIClickTheAddToCartButton()
         {
             productDetailsPage = new ProductDetailsPage(driver);
-            productDetailsPage.ClickAddToCartButton();
+            productDetailsPage.AddToCart();
         }
 
         [Then("the item should be added to the cart")]

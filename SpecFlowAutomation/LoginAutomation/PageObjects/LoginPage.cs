@@ -16,7 +16,7 @@ namespace LoginAutomation.PageObjects
             driver.Navigate().GoToUrl("https://www.saucedemo.com");
         }
 
-        public void EnterUsernameAndPassword(string username, string password)
+        public void Login(string username, string password)
         {
             var usernameInput = driver.FindElement(By.Id("user-name"));
             var passwordInput = driver.FindElement(By.Id("password"));

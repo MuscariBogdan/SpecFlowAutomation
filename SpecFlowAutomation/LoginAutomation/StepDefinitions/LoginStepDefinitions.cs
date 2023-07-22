@@ -22,7 +22,7 @@ namespace LoginAutomation.Stepdefinitions
         [When("I enter my username and password")]
         public void WhenIEnterMyUsernameAndPassword()
         {
-            loginPage.EnterUsernameAndPassword("standard_user", "secret_sauce");
+            loginPage.Login("standard_user", "secret_sauce");
         }
 
         [When("I click the login button")]
