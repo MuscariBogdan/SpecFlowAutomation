@@ -11,8 +11,6 @@ This repository contains an example project for SpecFlow automation using the Pa
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
