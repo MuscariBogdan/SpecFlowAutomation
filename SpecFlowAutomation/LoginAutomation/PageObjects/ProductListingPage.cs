@@ -27,7 +27,11 @@ namespace LoginAutomation.PageObjects
                 }
                 catch (NoSuchElementException)
                 {
-                    return false;
+                    throw new NoSuchElementException($"Element with locator '{elementLocator}' not found.");
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Unexpected error occurred while waiting for element.");
                 }
             });
 
