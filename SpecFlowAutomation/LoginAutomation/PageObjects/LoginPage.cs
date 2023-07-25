@@ -16,7 +16,7 @@ namespace LoginAutomation.PageObjects
             driver.Navigate().GoToUrl("https://www.saucedemo.com");
         }
 
-        public void PerformLogin(string username, string password)
+        internal HomePage PerformLogin(string username, string password)
         {
             IWebElement usernameInput = driver.FindElement(By.Id("user-name"));
             IWebElement passwordInput = driver.FindElement(By.Id("password"));
@@ -24,13 +24,11 @@ namespace LoginAutomation.PageObjects
             usernameInput.SendKeys(username);
             passwordInput.SendKeys(password);
 
-            ClickLoginButton();
-        }
-
-        public void ClickLoginButton()
-        {
             IWebElement loginButton = driver.FindElement(By.Name("login-button"));
             loginButton.Click();
+
+
+            return new HomePage(driver);
         }
     }
 }

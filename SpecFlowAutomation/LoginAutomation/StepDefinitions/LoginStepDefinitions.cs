@@ -10,7 +10,7 @@ namespace LoginAutomation.Stepdefinitions
     {
         private IWebDriver driver;
         private LoginPage loginPage;
-
+        private HomePage homePage;
         [Given("I am on the login page")]
         public void GivenIAmOnTheLoginPage()
         {
@@ -22,13 +22,7 @@ namespace LoginAutomation.Stepdefinitions
         [When("I enter my username and password")]
         public void WhenIEnterMyUsernameAndPassword()
         {
-            loginPage.PerformLogin("standard_user", "secret_sauce");
-        }
-
-        [When("I click the login button")]
-        public void WhenIClickTheLoginButton()
-        {
-            loginPage.ClickLoginButton();
+            homePage = loginPage.PerformLogin("standard_user", "secret_sauce");
         }
 
         [Then("I should be logged in")]

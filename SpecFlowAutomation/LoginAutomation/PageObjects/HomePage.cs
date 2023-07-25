@@ -28,6 +28,5 @@ namespace LoginAutomation.PageObjects
 
             return new ProductListingPage(driver);
         }
-
     }
 }
