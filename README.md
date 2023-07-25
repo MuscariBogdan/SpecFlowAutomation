@@ -1,7 +1,5 @@
 # SpecFlowAutomation
 
-Sure! Here's an example of a README.md file for your GitHub repository:
-
 # SpecFlow Automation with Page Object Model (POM)
 
 This repository contains an example project for SpecFlow automation using the Page Object Model (POM) design pattern. The project demonstrates how to automate login functionality and add items to the shopping cart on a sample e-commerce website.
