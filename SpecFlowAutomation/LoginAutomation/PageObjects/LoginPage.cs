@@ -16,18 +16,20 @@ namespace LoginAutomation.PageObjects
             driver.Navigate().GoToUrl("https://www.saucedemo.com");
         }
 
-        public void Login(string username, string password)
+        public void PerformLogin(string username, string password)
         {
-            var usernameInput = driver.FindElement(By.Id("user-name"));
-            var passwordInput = driver.FindElement(By.Id("password"));
+            IWebElement usernameInput = driver.FindElement(By.Id("user-name"));
+            IWebElement passwordInput = driver.FindElement(By.Id("password"));
 
             usernameInput.SendKeys(username);
             passwordInput.SendKeys(password);
+
+            ClickLoginButton();
         }
 
         public void ClickLoginButton()
         {
-            var loginButton = driver.FindElement(By.Name("login-button"));
+            IWebElement loginButton = driver.FindElement(By.Name("login-button"));
             loginButton.Click();
         }
     }
