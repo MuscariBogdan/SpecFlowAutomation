@@ -24,6 +24,8 @@ namespace LoginAutomation.PageObjects
             usernameInput.SendKeys(username);
             passwordInput.SendKeys(password);
 
+            Thread.Sleep(1000);
+
             IWebElement loginButton = driver.FindElement(By.Name("login-button"));
             loginButton.Click();
 
