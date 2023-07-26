@@ -19,7 +19,7 @@ namespace LoginAutomation.PageObjects
 
         public ProductListingPage GoToProductListingPage()
         {
-            driver.Navigate().GoToUrl("https://www.example.com/product-listing");
+            driver.Navigate().GoToUrl("https://www.saucedemo.com/inventory.html");
 
             return new ProductListingPage(driver);
         }
