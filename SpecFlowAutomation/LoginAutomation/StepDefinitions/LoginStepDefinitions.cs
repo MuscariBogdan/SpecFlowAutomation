@@ -30,6 +30,7 @@ namespace LoginAutomation.Stepdefinitions
         {
             Assert.True(driver.Url.Contains("inventory"));
 
+            Thread.Sleep(2000);
             driver.Quit();
         }
     }

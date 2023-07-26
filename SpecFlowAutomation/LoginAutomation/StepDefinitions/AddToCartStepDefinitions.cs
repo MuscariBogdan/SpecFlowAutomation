@@ -53,6 +53,7 @@ namespace LoginAutomation.StepDefinitions
             bool isItemAdded = shoppingCartPage.IsItemInCart(selectedProductName);
             Assert.IsTrue(isItemAdded, $"The item '{selectedProductName}' should be added to the cart.");
 
+            Thread.Sleep(2000);
             driver.Quit();
         }
     }
