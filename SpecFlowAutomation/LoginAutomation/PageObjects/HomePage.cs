@@ -27,12 +27,5 @@ namespace LoginAutomation.PageObjects
 
             Thread.Sleep(1500);
         }
-
-        /*public ProductListingPage GoToProductListingPage()
-        {
-            driver.Navigate().GoToUrl("https://www.saucedemo.com/inventory.html");
-
-            return new ProductListingPage(driver);
-        }*/
     }
 }

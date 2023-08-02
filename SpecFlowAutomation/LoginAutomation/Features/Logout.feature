@@ -3,6 +3,7 @@
     So that my session is terminated
 @logout
 Scenario: Successful logout
+
     Given I am logged in for Logout
     When I click the logout button
     Then I should be logged out

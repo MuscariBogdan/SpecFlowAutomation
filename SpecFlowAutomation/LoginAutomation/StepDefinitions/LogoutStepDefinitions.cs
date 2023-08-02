@@ -19,6 +19,7 @@ namespace LoginAutomation.StepDefinitions
         {
             driver = new ChromeDriver();
             loginPage = new LoginPage(driver);
+
             loginPage.NavigateToLoginPage();
             homePage = loginPage.PerformLogin("standard_user", "secret_sauce");
         }
