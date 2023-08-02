@@ -15,8 +15,8 @@ namespace LoginAutomation.StepDefinitions
         private string selectedProductName;
         private IWebDriver driver;
 
-        [Given(@"I am logged in")]
-        public void GivenIAmLoggedIn()
+        [Given(@"I am logged in for Add to Cart")]
+        public void GivenIAmLoggedInForAddToCart()
         {
             driver = new ChromeDriver();
             loginPage = new LoginPage(driver);
