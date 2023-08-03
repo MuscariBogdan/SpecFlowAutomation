@@ -28,7 +28,7 @@ namespace LoginAutomation.Features
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "AToZSorting.feature"
+#line 1 "SortingItemsAToZ.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]

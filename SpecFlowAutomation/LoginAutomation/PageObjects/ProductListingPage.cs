@@ -51,7 +51,7 @@ namespace LoginAutomation.PageObjects
             wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName("inventory_list")));
         }
 
-        public bool AreItemsSortedFromAToZ()
+        public bool AreItemsSorted(string sortingOrder)
         {
             IReadOnlyCollection<IWebElement> items = driver.FindElements(By.ClassName("inventory_item_name"));
             List<string> itemNames = items.Select(item => item.Text).ToList();
@@ -59,9 +59,23 @@ namespace LoginAutomation.PageObjects
 
             for (int i = 0; i < itemNames.Count - 1; i++)
             {
-                if (string.Compare(itemNames[i], itemNames[i + 1], StringComparison.Ordinal) > 0)
+                int comparisonResult;
+                if (sortingOrder == "AtoZ")
                 {
-                    return false;
+                    comparisonResult = string.Compare(itemNames[i + 1], itemNames[i], StringComparison.Ordinal);
+                }
+                else if (sortingOrder == "ZtoA")
+                {
+                    comparisonResult = string.Compare(itemNames[i], itemNames[i + 1], StringComparison.Ordinal);
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid sorting order specified. Use 'AtoZ' or 'ZtoA'.", nameof(sortingOrder));
+                }
+
+                if (comparisonResult < 0)
+                {
+                    return false; // The items are not sorted as expected
                 }
             }
 

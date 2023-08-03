@@ -40,7 +40,9 @@ namespace LoginAutomation.StepDefinitions
         [Then(@"the items should be sorted from A to Z")]
         public void ThenTheItemsShouldBeSortedFromAToZ()
         {
-            bool isSorted = productListingPage.AreItemsSortedFromAToZ();
+            var sortingOrder = "AtoZ";
+
+            bool isSorted = productListingPage.AreItemsSorted(sortingOrder);
             Assert.IsTrue(isSorted, "The items should be sorted from A to Z.");
 
             driver.Quit();
