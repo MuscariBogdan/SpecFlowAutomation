@@ -2,36 +2,60 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using LoginAutomation.PageObjects;
+using TechTalk.SpecFlow;
 
-namespace LoginAutomation.Stepdefinitions
+namespace LoginAutomation.StepDefinitions
 {
     [Binding]
     internal class LoginStepDefinitions
     {
-        private IWebDriver driver;
-        private LoginPage loginPage;
-        private HomePage homePage;
+        private SharedLoginContext _sharedLoginContext;
+
+        public LoginStepDefinitions(SharedLoginContext sharedLoginContext)
+        {
+            _sharedLoginContext = sharedLoginContext;
+        }
+
         [Given("I am on the login page")]
         public void GivenIAmOnTheLoginPage()
         {
-            driver = new ChromeDriver();
-            loginPage = new LoginPage(driver);
-            loginPage.NavigateToLoginPage();
+            _sharedLoginContext.LoginPage.NavigateToLoginPage();
         }
 
-        [When("I enter my username and password")]
-        public void WhenIEnterMyUsernameAndPassword()
+        [When(@"I enter my username ""([^""]*)"" and password ""([^""]*)""")]
+        public void WhenIEnterMyUsernameAndPassword(string username, string password)
         {
-            homePage = loginPage.PerformLogin("standard_user", "secret_sauce");
+            _sharedLoginContext.HomePage = _sharedLoginContext.LoginPage.PerformLogin(username, password);
+        }
+
+        [When("I enter invalid username \"(.*)\" and valid password")]
+        public void WhenIEnterInvalidUsernameAndValidPassword(string username)
+        {
+            _sharedLoginContext.LoginPage.PerformLogin(username, "secret_sauce");
+        }
+
+        [When("I enter valid username and invalid password \"(.*)\"")]
+        public void WhenIEnterValidUsernameAndInvalidPassword(string password)
+        {
+            _sharedLoginContext.LoginPage.PerformLogin("standard_user", password);
+        }
+
+        [When(@"I enter invalid username ""([^""]*)"" and invalid password ""([^""]*)""")]
+        public void WhenIEnterInvalidUsernameAndInvalidPassword(string username, string password)
+        {
+            _sharedLoginContext.LoginPage.PerformLogin(username, password);
         }
 
         [Then("I should be logged in")]
         public void ThenIShouldBeLoggedIn()
         {
-            Assert.True(driver.Url.Contains("inventory"));
+            Assert.True(_sharedLoginContext.Driver.Url.Contains("inventory"));
+        }
 
-            Thread.Sleep(2000);
-            driver.Quit();
+        [Then("I should see an error message for invalid login")]
+        public void ThenIShouldSeeAnErrorMessageForInvalidLogin()
+        {
+            Assert.IsTrue(_sharedLoginContext.LoginPage.IsErrorMessageDisplayed());
         }
     }
 }

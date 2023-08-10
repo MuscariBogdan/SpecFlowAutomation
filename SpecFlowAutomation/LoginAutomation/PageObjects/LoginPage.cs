@@ -32,5 +32,18 @@ namespace LoginAutomation.PageObjects
 
             return new HomePage(driver);
         }
+
+        public bool IsErrorMessageDisplayed()
+        {
+            try
+            {
+                IWebElement errorElement = driver.FindElement(By.CssSelector("h3[data-test='error']"));
+                return errorElement.Displayed;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
     }
 }
