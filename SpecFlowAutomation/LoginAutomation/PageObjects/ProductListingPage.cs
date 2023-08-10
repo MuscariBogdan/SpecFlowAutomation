@@ -4,7 +4,7 @@ using SeleniumExtras.WaitHelpers;
 
 namespace LoginAutomation.PageObjects
 {
-    public class ProductListingPage
+    internal class ProductListingPage
     {
         private IWebDriver driver;
 

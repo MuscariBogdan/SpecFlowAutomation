@@ -2,7 +2,7 @@
 
 namespace LoginAutomation.PageObjects
 {
-    public class ProductDetailsPage
+    internal class ProductDetailsPage
     {
         private IWebDriver driver;
 

@@ -1,40 +1,29 @@
 using LoginAutomation.PageObjects;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
-using TechTalk.SpecFlow;
 
 namespace LoginAutomation.StepDefinitions
 {
     [Binding]
     public class SortingItemsFromAToZStepDefinitions
     {
-        private HomePage homePage;
-        private LoginPage loginPage;
-        private ProductListingPage productListingPage;
-        private IWebDriver driver;
+        private SharedLoginContext _sharedLoginContext;
+        private ProductListingPage _productListingPage;
 
-        [Given(@"I am logged in for sorting")]
-        public void GivenIAmLoggedInForSorting()
+        internal SortingItemsFromAToZStepDefinitions(SharedLoginContext sharedLoginContext)
         {
-            driver = new ChromeDriver();
-            loginPage = new LoginPage(driver);
-
-            loginPage.NavigateToLoginPage();
-            loginPage.PerformLogin("standard_user", "secret_sauce");
+            _sharedLoginContext = sharedLoginContext;
         }
 
         [Given(@"I am on the product listing page for sorting")]
         public void GivenIAmOnTheProductListingPageForSorting()
         {
-            productListingPage = new ProductListingPage(driver);
+            _productListingPage = new ProductListingPage(_sharedLoginContext.Driver);
         }
 
         [When(@"I select ""(.*)"" from the sort drop-down list")]
         public void WhenISelectFromTheSortDropDownList(string sortingOption)
         {
-            productListingPage.SelectSortingOption(sortingOption);
+            _productListingPage.SelectSortingOption(sortingOption);
         }
 
         [Then(@"the items should be sorted from A to Z")]
@@ -42,10 +31,8 @@ namespace LoginAutomation.StepDefinitions
         {
             var sortingOrder = "AtoZ";
 
-            bool isSorted = productListingPage.AreItemsSorted(sortingOrder);
+            bool isSorted = _productListingPage.AreItemsSorted(sortingOrder);
             Assert.IsTrue(isSorted, "The items should be sorted from A to Z.");
-
-            driver.Quit();
         }
     }
 }

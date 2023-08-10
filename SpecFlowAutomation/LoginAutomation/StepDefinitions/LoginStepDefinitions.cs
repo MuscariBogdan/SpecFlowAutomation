@@ -6,7 +6,7 @@ using LoginAutomation.PageObjects;
 namespace LoginAutomation.Stepdefinitions
 {
     [Binding]
-    public class LoginStepDefinitions
+    internal class LoginStepDefinitions
     {
         private IWebDriver driver;
         private LoginPage loginPage;

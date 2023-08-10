@@ -13,11 +13,14 @@ namespace LoginAutomation
         {
             _driver = driver;
             _loginPage = new LoginPage(_driver);
-            _homePage = _loginPage.PerformLogin("standard_user", "secret_sauce");
         }
 
         public IWebDriver Driver => _driver;
         public LoginPage LoginPage => _loginPage;
-        public HomePage HomePage => _homePage;
+        public HomePage HomePage
+        {
+            get => _homePage;
+            set => _homePage = value;
+        }
     }
 }

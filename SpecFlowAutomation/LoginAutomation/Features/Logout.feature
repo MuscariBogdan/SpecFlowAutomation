@@ -4,6 +4,6 @@
 @logout
 Scenario: Successful logout
 
-    Given I am logged in for Logout
+    Given I am logged in
     When I click the logout button
     Then I should be logged out

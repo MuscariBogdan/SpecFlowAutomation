@@ -35,8 +35,8 @@ namespace LoginAutomation.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Sorting items from A to Z", "  As a user\r\n  I want to be able to sort items from A to Z\r\n  So that I can see t" +
-                    "he items in alphabetical order", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Sorting items from A to Z", "    As a user\r\n    I want to be able to sort items from A to Z\r\n    So that I can" +
+                    " see the items in alphabetical order", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -83,8 +83,8 @@ namespace LoginAutomation.Features
                     "sorting"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sort items from A to Z", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 7
-  this.ScenarioInitialize(scenarioInfo);
+#line 19
+    this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -93,17 +93,17 @@ namespace LoginAutomation.Features
             else
             {
                 this.ScenarioStart();
-#line 8
-    testRunner.Given("I am logged in for sorting", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
+        testRunner.Given("I am logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 9
-    testRunner.And("I am on the product listing page for sorting", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+        testRunner.And("I am on the product listing page for sorting", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 10
-    testRunner.When("I select \"Name (A to Z)\" from the sort drop-down list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 22
+        testRunner.When("I select \"Name (A to Z)\" from the sort drop-down list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 11
-    testRunner.Then("the items should be sorted from A to Z", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 23
+        testRunner.Then("the items should be sorted from A to Z", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

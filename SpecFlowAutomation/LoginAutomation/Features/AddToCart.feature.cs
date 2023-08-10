@@ -35,8 +35,8 @@ namespace LoginAutomation.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Add item to shopping cart", "\tAs a user I want to be able to add an item to my shopping cart\r\n\tSo that I can p" +
-                    "roceed with the purchase", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Add item to shopping cart", "    As a user I want to be able to add an item to my shopping cart\r\n    So that I" +
+                    " can proceed with the purchase", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -94,7 +94,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
-testRunner.Given("I am logged in for Add to Cart", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I am logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
 testRunner.And("I am on the product listing page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
