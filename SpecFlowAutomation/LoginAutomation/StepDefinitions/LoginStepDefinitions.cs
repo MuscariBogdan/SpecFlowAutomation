@@ -1,8 +1,7 @@
+using FluentAssertions.Common;
+using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using LoginAutomation.PageObjects;
-using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Configuration.AppConfig;
 
 namespace LoginAutomation.StepDefinitions
 {
@@ -10,10 +9,12 @@ namespace LoginAutomation.StepDefinitions
     internal class LoginStepDefinitions
     {
         private SharedLoginContext _sharedLoginContext;
+        private readonly AppConfig _appConfig;
 
-        public LoginStepDefinitions(SharedLoginContext sharedLoginContext)
+        public LoginStepDefinitions(SharedLoginContext sharedLoginContext, AppConfig appConfig)
         {
             _sharedLoginContext = sharedLoginContext;
+            _appConfig = appConfig;
         }
 
         [Given("I am on the login page")]
@@ -23,8 +24,11 @@ namespace LoginAutomation.StepDefinitions
         }
 
         [When(@"I enter my username ""([^""]*)"" and password ""([^""]*)""")]
-        public void WhenIEnterMyUsernameAndPassword(string username, string password)
+        public void WhenIEnterMyUsernameAndPassword(string usernameKey, string passwordKey)
         {
+            string username = _appConfig.GetSetting(usernameKey);
+            string password = _appConfig.GetSetting(passwordKey);
+
             _sharedLoginContext.HomePage = _sharedLoginContext.LoginPage.PerformLogin(username, password);
         }
 
@@ -57,5 +61,12 @@ namespace LoginAutomation.StepDefinitions
         {
             Assert.IsTrue(_sharedLoginContext.LoginPage.IsErrorMessageDisplayed());
         }
+
+        [When(@"I enter empty username ""([^""]*)"" and empty password ""([^""]*)""")]
+        public void WhenIEnterEmptyUsernameAndEmptyPassword(string username, string password)
+        {
+            _sharedLoginContext.LoginPage.PerformLogin(username, password);
+        }
+
     }
 }

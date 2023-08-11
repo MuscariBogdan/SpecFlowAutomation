@@ -1,6 +1,4 @@
-﻿using LoginAutomation.PageObjects;
-using NUnit.Framework;
-namespace LoginAutomation.StepDefinitions
+﻿namespace LoginAutomation.StepDefinitions
 {
     [Binding]
     public class CommonSteps
