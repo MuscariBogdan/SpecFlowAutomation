@@ -10,10 +10,12 @@ namespace LoginAutomation
     {
         private IObjectContainer _container;
         private IWebDriver _driver;
+        private readonly AppConfig _appConfig;
 
-        public Hooks(IObjectContainer container)
+        public Hooks(IObjectContainer container, AppConfig appConfig)
         {
             _container = container;
+            _appConfig = appConfig;
         }
 
         [BeforeScenario]
@@ -22,7 +24,7 @@ namespace LoginAutomation
             _driver = new ChromeDriver();
             _container.RegisterInstanceAs(_driver);
 
-            var sharedLoginContext = new SharedLoginContext(_driver);
+            var sharedLoginContext = new SharedLoginContext(_driver, _appConfig);
             _container.RegisterInstanceAs(sharedLoginContext);
         }
 

@@ -35,13 +35,15 @@ namespace LoginAutomation.StepDefinitions
         [When("I enter invalid username \"(.*)\" and valid password")]
         public void WhenIEnterInvalidUsernameAndValidPassword(string username)
         {
-            _sharedLoginContext.LoginPage.PerformLogin(username, "secret_sauce");
+            string correctPassword = _appConfig.GetSetting("Password");
+            _sharedLoginContext.LoginPage.PerformLogin(username, correctPassword);
         }
 
         [When("I enter valid username and invalid password \"(.*)\"")]
         public void WhenIEnterValidUsernameAndInvalidPassword(string password)
         {
-            _sharedLoginContext.LoginPage.PerformLogin("standard_user", password);
+            string correctUser = _appConfig.GetSetting("Username");
+            _sharedLoginContext.LoginPage.PerformLogin(correctUser, password);
         }
 
         [When(@"I enter invalid username ""([^""]*)"" and invalid password ""([^""]*)""")]

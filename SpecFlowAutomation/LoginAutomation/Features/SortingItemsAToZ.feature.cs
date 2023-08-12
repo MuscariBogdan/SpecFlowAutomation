@@ -83,7 +83,7 @@ namespace LoginAutomation.Features
                     "sorting"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sort items from A to Z", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 19
+#line 7
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -93,16 +93,16 @@ namespace LoginAutomation.Features
             else
             {
                 this.ScenarioStart();
-#line 20
+#line 8
         testRunner.Given("I am logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 21
+#line 9
         testRunner.And("I am on the product listing page for sorting", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 22
+#line 10
         testRunner.When("I select \"Name (A to Z)\" from the sort drop-down list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 23
+#line 11
         testRunner.Then("the items should be sorted from A to Z", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

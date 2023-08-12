@@ -5,10 +5,12 @@ namespace LoginAutomation.PageObjects
     internal class ProductDetailsPage
     {
         private IWebDriver driver;
+        private readonly AppConfig _appConfig;
 
-        public ProductDetailsPage(IWebDriver driver)
+        public ProductDetailsPage(IWebDriver driver, AppConfig appConfig)
         {
             this.driver = driver;
+            _appConfig = appConfig;
         }
 
         public void AddToCart()
@@ -20,8 +22,9 @@ namespace LoginAutomation.PageObjects
 
         public ShoppingCartPage GoToShoppingCart()
         {
-            driver.Navigate().GoToUrl("https://www.saucedemo.com/cart.html");
-            return new ShoppingCartPage(driver);
+            string shoppingCartUrl = _appConfig.GetSetting("ShoppingCartUrl");
+            driver.Navigate().GoToUrl(shoppingCartUrl);
+            return new ShoppingCartPage(driver, _appConfig);
         }
     }
 }

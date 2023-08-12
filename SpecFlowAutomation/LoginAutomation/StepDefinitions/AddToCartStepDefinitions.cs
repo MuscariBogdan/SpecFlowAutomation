@@ -11,6 +11,7 @@ namespace LoginAutomation.StepDefinitions
         private ProductDetailsPage _productDetailsPage;
         private ShoppingCartPage _shoppingCartPage;
         private string _selectedProductName;
+        private readonly AppConfig _appConfig;
 
         internal AddToCartStepDefinitions(SharedLoginContext sharedLoginContext)
         {
@@ -33,7 +34,7 @@ namespace LoginAutomation.StepDefinitions
         [When("I click the \"Add to Cart\" button")]
         public void WhenIClickTheAddToCartButton()
         {
-            _productDetailsPage = new ProductDetailsPage(_sharedLoginContext.Driver);
+            _productDetailsPage = new ProductDetailsPage(_sharedLoginContext.Driver, _appConfig);
             _productDetailsPage.AddToCart();
         }
 

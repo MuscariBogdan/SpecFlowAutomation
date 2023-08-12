@@ -5,15 +5,18 @@ namespace LoginAutomation.PageObjects
     internal class LoginPage
     {
         private IWebDriver driver;
+        private readonly AppConfig _appConfig;
 
-        public LoginPage(IWebDriver driver)
+        public LoginPage(IWebDriver driver, AppConfig appConfig)
         {
             this.driver = driver;
+            _appConfig = appConfig;
         }
 
         public void NavigateToLoginPage()
         {
-            driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            string baseUrl = _appConfig.GetSetting("BaseUrl");
+            driver.Navigate().GoToUrl(baseUrl);
         }
 
         internal HomePage PerformLogin(string username, string password)
