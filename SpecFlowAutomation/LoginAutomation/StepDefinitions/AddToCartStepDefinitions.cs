@@ -13,9 +13,10 @@ namespace LoginAutomation.StepDefinitions
         private string _selectedProductName;
         private readonly AppConfig _appConfig;
 
-        internal AddToCartStepDefinitions(SharedLoginContext sharedLoginContext)
+        internal AddToCartStepDefinitions(SharedLoginContext sharedLoginContext, AppConfig appConfig)
         {
             _sharedLoginContext = sharedLoginContext;
+            _appConfig = appConfig;
         }
 
         [Given(@"I am on the product listing page")]
