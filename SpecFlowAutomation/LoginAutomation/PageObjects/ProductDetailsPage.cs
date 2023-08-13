@@ -26,5 +26,14 @@ namespace LoginAutomation.PageObjects
             _driver.Navigate().GoToUrl("https://www.saucedemo.com/cart.html");
             return new ShoppingCartPage(_driver, _appConfig);
         }
+
+        public void AddItemsToShoppingCart(string itemToBeAdded)
+        {
+
+            var productListingPage = new ProductListingPage(_driver);
+            productListingPage.ClickOnProduct(itemToBeAdded);
+
+            AddToCart();
+        }
     }
 }

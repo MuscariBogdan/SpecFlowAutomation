@@ -24,14 +24,10 @@ namespace LoginAutomation.StepDefinitions
         [Given(@"I have added items to my shopping cart")]
         public void GivenIHaveAddedItemsToMyShoppingCart()
         {
-            _productListingPage = new ProductListingPage(_sharedLoginContext.Driver);
-
-            _selectedProductName = "Sauce Labs Backpack";
-            _productListingPage.ClickOnProduct("Sauce Labs Backpack");
+            _selectedProductName = _appConfig.GetSetting("FirstItemName");
 
             _productDetailsPage = new ProductDetailsPage(_sharedLoginContext.Driver, _appConfig);
-            _productDetailsPage.AddToCart();
-
+            _productDetailsPage.AddItemsToShoppingCart(_selectedProductName);
         }
 
         [When(@"I remove an item from the cart")]

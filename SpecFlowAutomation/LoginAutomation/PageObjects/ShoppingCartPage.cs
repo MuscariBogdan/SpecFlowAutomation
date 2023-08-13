@@ -21,11 +21,6 @@ namespace LoginAutomation.PageObjects
 
             By itemLocator = By.XPath($"//*[contains(text(), '{itemName}')]");
 
-
-            /*bool isItemPresent = wait.Until(ExpectedConditions.ElementExists(itemLocator)) != null;
-
-            return isItemPresent;*/
-
             try
             {
                 wait.Until(ExpectedConditions.ElementExists(itemLocator));
