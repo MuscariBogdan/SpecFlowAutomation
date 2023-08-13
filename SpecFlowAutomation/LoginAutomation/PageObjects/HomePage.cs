@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 
 namespace LoginAutomation.PageObjects
 {
@@ -22,10 +24,10 @@ namespace LoginAutomation.PageObjects
         public void ClickBurgerMenu()
         {
             IWebElement burgerMenu = driver.FindElement(By.XPath("//button[@id='react-burger-menu-btn']"));
-
             burgerMenu.Click();
 
-            Thread.Sleep(1500);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//a[@id='logout_sidebar_link']")));
         }
     }
 }
