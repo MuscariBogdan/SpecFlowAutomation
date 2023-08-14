@@ -31,5 +31,12 @@ namespace LoginAutomation.PageObjects
         {
             return new SelectElement(FindElement(locator));
         }
+
+        protected SelectElement SelectDropdownOption(By locator, string optionText)
+        {
+            SelectElement selectElement = SelectDropdownOption(locator);
+            selectElement.SelectByText(optionText);
+            return selectElement;
+        }
     }
 }

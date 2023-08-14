@@ -19,13 +19,8 @@ namespace LoginAutomation.PageObjects
 
         public void SelectSortingOption(string sortingOption)
         {
-            IWebElement sortDropdown = FindElement(By.ClassName("product_sort_container"));
-            var selectElement = new SelectElement(sortDropdown);
-            selectElement.SelectByText(sortingOption);
-
-
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName("inventory_list")));
+            By sortDropdownLocator = By.ClassName("product_sort_container");
+            SelectDropdownOption(sortDropdownLocator, sortingOption);
         }
 
         public bool AreItemsSorted(string sortingOrder)

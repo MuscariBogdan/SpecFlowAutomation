@@ -16,8 +16,10 @@ namespace LoginAutomation.PageObjects
 
         public ShoppingCartPage GoToShoppingCart()
         {
-            string shoppingCartUrl = _appConfig.GetSetting("CartUrl");
-            _driver.Navigate().GoToUrl(shoppingCartUrl);
+            By shoppingCartButtonLocator = By.CssSelector("div.shopping_cart_container > a.shopping_cart_link");
+            IWebElement shoppingCartButton = FindElement(shoppingCartButtonLocator);
+            shoppingCartButton.Click();
+
             return new ShoppingCartPage(_driver, _appConfig);
         }
 
