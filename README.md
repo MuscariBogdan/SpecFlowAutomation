@@ -65,7 +65,7 @@ Step definitions are organized by feature and include:
 
 To run the tests, use the provided test runners:
 
-- Execute the test suite using SpecFlow or a continuous integration tool (e.g., Jenkins, Azure DevOps).
+- Execute the test suite using SpecFlow.
 - Optionally, configure and customize the test execution environment (e.g., browsers, parallel execution).
 
 Happy testing!
