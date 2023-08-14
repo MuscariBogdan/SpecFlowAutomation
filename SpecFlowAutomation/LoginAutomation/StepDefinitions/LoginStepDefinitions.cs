@@ -1,7 +1,4 @@
-using FluentAssertions.Common;
-using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
-using TechTalk.SpecFlow.Configuration.AppConfig;
 
 namespace LoginAutomation.StepDefinitions
 {

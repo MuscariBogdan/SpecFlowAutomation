@@ -8,17 +8,12 @@ namespace LoginAutomation.StepDefinitions
     [Binding]
     public class CheckoutStepDefinitions
     {
-        private SharedLoginContext _sharedLoginContext;
-        private ProductListingPage _productListingPage;
-        private ProductDetailsPage _productDetailsPage;
         private ShoppingCartPage _shoppingCartPage;
         private CheckoutPage _checkoutPage;
-        private string _selectedProductName;
         private readonly AppConfig _appConfig;
 
-        internal CheckoutStepDefinitions(SharedLoginContext sharedLoginContext, AppConfig appConfig, ShoppingCartPage shoppingCart)
+        internal CheckoutStepDefinitions(AppConfig appConfig, ShoppingCartPage shoppingCart)
         {
-            _sharedLoginContext = sharedLoginContext;
             _appConfig = appConfig;
             _shoppingCartPage = shoppingCart;
         }

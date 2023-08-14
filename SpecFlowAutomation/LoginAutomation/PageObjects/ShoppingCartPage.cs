@@ -42,11 +42,10 @@ namespace LoginAutomation.PageObjects
         public CheckoutPage ProceedToCheckout()
         {
             _productDetailsPage.GoToShoppingCart();
-            // Click on the "CHECKOUT" button to proceed to checkout
+
             IWebElement checkoutButton = FindElement(By.Id("checkout"));
             checkoutButton.Click();
 
-            // Return a new instance of CheckoutPage
             return new CheckoutPage(_driver, _appConfig);
         }
     }

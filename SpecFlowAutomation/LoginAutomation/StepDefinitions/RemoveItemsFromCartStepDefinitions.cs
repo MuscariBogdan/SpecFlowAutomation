@@ -1,8 +1,5 @@
 using LoginAutomation.PageObjects;
 using NUnit.Framework;
-using System;
-using TechTalk.SpecFlow;
-
 namespace LoginAutomation.StepDefinitions
 {
     [Binding]

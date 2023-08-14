@@ -1,6 +1,5 @@
 using LoginAutomation.PageObjects;
 using OpenQA.Selenium;
-using TechTalk.SpecFlow;
 using NUnit.Framework;
 
 namespace LoginAutomation.StepDefinitions
