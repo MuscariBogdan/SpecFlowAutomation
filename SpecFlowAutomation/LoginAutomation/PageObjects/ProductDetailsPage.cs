@@ -23,7 +23,7 @@ namespace LoginAutomation.PageObjects
         public ShoppingCartPage GoToShoppingCart()
         {
             string shoppingCartUrl = _appConfig.GetSetting("CartUrl");
-            _driver.Navigate().GoToUrl("https://www.saucedemo.com/cart.html");
+            _driver.Navigate().GoToUrl(shoppingCartUrl);
             return new ShoppingCartPage(_driver, _appConfig);
         }
 

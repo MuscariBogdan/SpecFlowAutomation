@@ -50,8 +50,8 @@ namespace LoginAutomation
         public bool IsOrderConfirmed()
         {
             // Check if order confirmation message is displayed
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            By confirmationMessageLocator = By.XPath("//div[contains(text(), 'Your order is complete')]");
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
+            By confirmationMessageLocator = By.XPath("//h2[text()='Thank you for your order!']\r\n");
 
             return wait.Until(ExpectedConditions.ElementIsVisible(confirmationMessageLocator)) != null;
         }

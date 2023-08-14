@@ -16,10 +16,11 @@ namespace LoginAutomation.StepDefinitions
         private string _selectedProductName;
         private readonly AppConfig _appConfig;
 
-        internal CheckoutStepDefinitions(SharedLoginContext sharedLoginContext, AppConfig appConfig)
+        internal CheckoutStepDefinitions(SharedLoginContext sharedLoginContext, AppConfig appConfig, ShoppingCartPage shoppingCart)
         {
             _sharedLoginContext = sharedLoginContext;
             _appConfig = appConfig;
+            _shoppingCartPage = shoppingCart;
         }
 
         [When(@"I proceed to checkout")]

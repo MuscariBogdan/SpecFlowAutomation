@@ -15,6 +15,7 @@ namespace LoginAutomation.PageObjects
         {
             _driver = driver;
             _appConfig = appConfig;
+            _productDetailsPage = new ProductDetailsPage(_driver, _appConfig);
         }
 
         public bool IsItemInCart(string itemName)
@@ -44,7 +45,7 @@ namespace LoginAutomation.PageObjects
 
         public CheckoutPage ProceedToCheckout()
         {
-            _shoppingCartPage = _productDetailsPage.GoToShoppingCart();
+            _productDetailsPage.GoToShoppingCart();
             // Click on the "CHECKOUT" button to proceed to checkout
             IWebElement checkoutButton = _driver.FindElement(By.Id("checkout"));
             checkoutButton.Click();
