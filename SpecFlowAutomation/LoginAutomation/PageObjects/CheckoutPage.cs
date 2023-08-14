@@ -12,18 +12,21 @@ namespace LoginAutomation
         {
         }
 
-        public void EnterShippingInformation(string firstName, string lastName, string zipCode)
+        public void EnterShippingInformation(string firstName, string lastName, string postalCode)
         {
-            // Locate input fields and enter shipping information
-            IWebElement firstNameInput = FindElement(By.Id("first-name"));
-            IWebElement lastNameInput = FindElement(By.Id("last-name"));
-            IWebElement zipCodeInput = FindElement(By.Id("postal-code"));
+            var dataEntries = new List<(string, string)>()
+            {
+                ("first-name", firstName),
+                ("last-name", lastName),
+                ("postal-code", postalCode)
+            };
 
-            firstNameInput.SendKeys(firstName);
-            lastNameInput.SendKeys(lastName);
-            zipCodeInput.SendKeys(zipCode);
+            foreach (var (elementID, value) in dataEntries)
+            {
+                IWebElement inputElement = FindElement(By.Id(elementID));
+                inputElement.SendKeys(value);
+            }    
 
-            // Click on next/continue button
             IWebElement continueButton = FindElement(By.XPath("//input[@value='Continue']"));
             continueButton.Click();
         }
