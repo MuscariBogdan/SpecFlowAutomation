@@ -4,23 +4,19 @@ using SeleniumExtras.WaitHelpers;
 
 namespace LoginAutomation.PageObjects
 {
-    internal class ShoppingCartPage
+    internal class ShoppingCartPage :BasePage
     {
-        private IWebDriver _driver;
-        private readonly AppConfig _appConfig;
         private ProductDetailsPage _productDetailsPage;
-        private ShoppingCartPage _shoppingCartPage;
 
         public ShoppingCartPage(IWebDriver driver, AppConfig appConfig)
+            : base(driver, appConfig)
         {
-            _driver = driver;
-            _appConfig = appConfig;
-            _productDetailsPage = new ProductDetailsPage(_driver, _appConfig);
+            _productDetailsPage = new ProductDetailsPage(driver, appConfig);
         }
 
         public bool IsItemInCart(string itemName)
         {
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(2));
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(1));
 
             By itemLocator = By.XPath($"//*[contains(text(), '{itemName}')]");
 

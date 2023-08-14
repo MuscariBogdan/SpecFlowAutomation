@@ -6,6 +6,8 @@ namespace LoginAutomation
     {
         private readonly IConfiguration _configuration;
 
+
+        // I can also use a path and provide it as a param to access the configuration file from custom places
         public AppConfig()
         {
             _configuration = new ConfigurationBuilder()

@@ -22,7 +22,7 @@ namespace LoginAutomation.StepDefinitions
         [Given(@"I am on the product listing page")]
         public void GivenIAmOnTheProductListingPage()
         {
-            _productListingPage = new ProductListingPage(_sharedLoginContext.Driver);
+            _productListingPage = new ProductListingPage(_sharedLoginContext.Driver, _appConfig);
         }
 
         [When("I click on the item with name \"(.*)\"")]

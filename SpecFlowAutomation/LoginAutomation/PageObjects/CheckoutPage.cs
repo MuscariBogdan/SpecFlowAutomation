@@ -1,18 +1,15 @@
-﻿using OpenQA.Selenium;
+﻿using LoginAutomation.PageObjects;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
 namespace LoginAutomation
 {
-    internal class CheckoutPage
+    internal class CheckoutPage : BasePage
     {
-        private IWebDriver _driver;
-        private readonly AppConfig _appConfig;
-
         public CheckoutPage(IWebDriver driver, AppConfig appConfig)
+            : base(driver, appConfig)
         {
-            _driver = driver;
-            _appConfig = appConfig;
         }
 
         public void EnterShippingInformation(string firstName, string lastName, string zipCode)

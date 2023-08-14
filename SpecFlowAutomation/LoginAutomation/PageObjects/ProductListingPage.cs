@@ -4,18 +4,16 @@ using SeleniumExtras.WaitHelpers;
 
 namespace LoginAutomation.PageObjects
 {
-    internal class ProductListingPage
+    internal class ProductListingPage : BasePage
     {
-        private IWebDriver driver;
-
-        public ProductListingPage(IWebDriver driver)
+        public ProductListingPage(IWebDriver driver, AppConfig appConfig)
+            : base(driver, appConfig)
         {
-            this.driver = driver;
         }
 
         public void ClickOnProduct(string productName)
         {
-            WebDriverWait wait = new(driver, TimeSpan.FromSeconds(2));
+            WebDriverWait wait = new(_driver, TimeSpan.FromSeconds(2));
 
             By elementLocator = By.XPath($"//div[contains(@class, 'inventory_item_name') and contains(text(), '{productName}')]");
 
@@ -36,24 +34,24 @@ namespace LoginAutomation.PageObjects
                 }
             });
 
-            IWebElement productElement = driver.FindElement(elementLocator);
+            IWebElement productElement = _driver.FindElement(elementLocator);
             productElement.Click();
         }
 
         public void SelectSortingOption(string sortingOption)
         {
-            IWebElement sortDropdown = driver.FindElement(By.ClassName("product_sort_container"));
+            IWebElement sortDropdown = _driver.FindElement(By.ClassName("product_sort_container"));
             var selectElement = new SelectElement(sortDropdown);
             selectElement.SelectByText(sortingOption);
 
 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName("inventory_list")));
         }
 
         public bool AreItemsSorted(string sortingOrder)
         {
-            IReadOnlyCollection<IWebElement> items = driver.FindElements(By.ClassName("inventory_item_name"));
+            IReadOnlyCollection<IWebElement> items = _driver.FindElements(By.ClassName("inventory_item_name"));
             List<string> itemNames = items.Select(item => item.Text).ToList();
 
 

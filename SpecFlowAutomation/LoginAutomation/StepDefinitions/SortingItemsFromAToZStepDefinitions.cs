@@ -8,6 +8,7 @@ namespace LoginAutomation.StepDefinitions
     {
         private SharedLoginContext _sharedLoginContext;
         private ProductListingPage _productListingPage;
+        private AppConfig _appConfig;
 
         internal SortingItemsFromAToZStepDefinitions(SharedLoginContext sharedLoginContext)
         {
@@ -17,7 +18,7 @@ namespace LoginAutomation.StepDefinitions
         [Given(@"I am on the product listing page for sorting")]
         public void GivenIAmOnTheProductListingPageForSorting()
         {
-            _productListingPage = new ProductListingPage(_sharedLoginContext.Driver);
+            _productListingPage = new ProductListingPage(_sharedLoginContext.Driver, _appConfig);
         }
 
         [When(@"I select ""(.*)"" from the sort drop-down list")]

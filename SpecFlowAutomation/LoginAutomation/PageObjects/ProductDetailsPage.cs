@@ -2,16 +2,10 @@
 
 namespace LoginAutomation.PageObjects
 {
-    internal class ProductDetailsPage
+    internal class ProductDetailsPage : BasePage
     {
-        private IWebDriver _driver;
-        private readonly AppConfig _appConfig;
-
         public ProductDetailsPage(IWebDriver driver, AppConfig appConfig)
-        {
-            _driver = driver;
-            _appConfig = appConfig;
-        }
+            : base(driver, appConfig) { }
 
         public void AddToCart()
         {
@@ -30,7 +24,7 @@ namespace LoginAutomation.PageObjects
         public void AddItemsToShoppingCart(string itemToBeAdded)
         {
 
-            var productListingPage = new ProductListingPage(_driver);
+            var productListingPage = new ProductListingPage(_driver, _appConfig);
             productListingPage.ClickOnProduct(itemToBeAdded);
 
             AddToCart();
