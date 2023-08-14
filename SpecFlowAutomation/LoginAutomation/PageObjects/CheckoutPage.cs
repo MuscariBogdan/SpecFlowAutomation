@@ -15,16 +15,16 @@ namespace LoginAutomation
         public void EnterShippingInformation(string firstName, string lastName, string zipCode)
         {
             // Locate input fields and enter shipping information
-            IWebElement firstNameInput = _driver.FindElement(By.Id("first-name"));
-            IWebElement lastNameInput = _driver.FindElement(By.Id("last-name"));
-            IWebElement zipCodeInput = _driver.FindElement(By.Id("postal-code"));
+            IWebElement firstNameInput = FindElement(By.Id("first-name"));
+            IWebElement lastNameInput = FindElement(By.Id("last-name"));
+            IWebElement zipCodeInput = FindElement(By.Id("postal-code"));
 
             firstNameInput.SendKeys(firstName);
             lastNameInput.SendKeys(lastName);
             zipCodeInput.SendKeys(zipCode);
 
             // Click on next/continue button
-            IWebElement continueButton = _driver.FindElement(By.XPath("//input[@value='Continue']"));
+            IWebElement continueButton = FindElement(By.XPath("//input[@value='Continue']"));
             continueButton.Click();
         }
 
@@ -32,7 +32,7 @@ namespace LoginAutomation
         {
             By itemLocator = By.XPath($"//div[@class='inventory_item_name' and text()='{productName}']");
 
-            var isSummaryDisplayed = _driver.FindElement(By.Id("checkout_summary_container")).Displayed;
+            var isSummaryDisplayed = FindElement(By.Id("checkout_summary_container")).Displayed;
             var isItemPresent = _driver.FindElements(itemLocator).Count > 0;
 
             return isSummaryDisplayed && isItemPresent;
@@ -40,7 +40,7 @@ namespace LoginAutomation
 
         public void CompletePurchase()
         {
-            IWebElement finishButton = _driver.FindElement(By.Id("finish"));
+            IWebElement finishButton = FindElement(By.Id("finish"));
             finishButton.Click();
         }
 

@@ -34,7 +34,7 @@ namespace LoginAutomation.PageObjects
         internal void RemoveItemFromCart(string selectedProductName)
         {
             string buttonName = $"remove-{selectedProductName.ToLower().Replace(" ", "-")}";
-            IWebElement removeButton = _driver.FindElement(By.Id(buttonName));
+            IWebElement removeButton = FindElement(By.Id(buttonName));
 
             removeButton.Click();
         }
@@ -43,7 +43,7 @@ namespace LoginAutomation.PageObjects
         {
             _productDetailsPage.GoToShoppingCart();
             // Click on the "CHECKOUT" button to proceed to checkout
-            IWebElement checkoutButton = _driver.FindElement(By.Id("checkout"));
+            IWebElement checkoutButton = FindElement(By.Id("checkout"));
             checkoutButton.Click();
 
             // Return a new instance of CheckoutPage

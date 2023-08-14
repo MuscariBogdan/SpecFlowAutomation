@@ -13,34 +13,13 @@ namespace LoginAutomation.PageObjects
 
         public void ClickOnProduct(string productName)
         {
-            WebDriverWait wait = new(_driver, TimeSpan.FromSeconds(2));
-
             By elementLocator = By.XPath($"//div[contains(@class, 'inventory_item_name') and contains(text(), '{productName}')]");
-
-            wait.Until(driver =>
-            {
-                try
-                {
-                    var element = driver.FindElement(elementLocator);
-                    return element.Displayed;
-                }
-                catch (NoSuchElementException)
-                {
-                    throw new NoSuchElementException($"Element with locator '{elementLocator}' not found.");
-                }
-                catch (Exception)
-                {
-                    throw new Exception("Unexpected error occurred while waiting for element.");
-                }
-            });
-
-            IWebElement productElement = _driver.FindElement(elementLocator);
-            productElement.Click();
+            ClickElement(elementLocator);
         }
 
         public void SelectSortingOption(string sortingOption)
         {
-            IWebElement sortDropdown = _driver.FindElement(By.ClassName("product_sort_container"));
+            IWebElement sortDropdown = FindElement(By.ClassName("product_sort_container"));
             var selectElement = new SelectElement(sortDropdown);
             selectElement.SelectByText(sortingOption);
 

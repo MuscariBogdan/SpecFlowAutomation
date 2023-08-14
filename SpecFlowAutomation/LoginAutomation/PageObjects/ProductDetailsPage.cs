@@ -10,7 +10,7 @@ namespace LoginAutomation.PageObjects
         public void AddToCart()
         {
             By addToCartButtonLocator = By.CssSelector("button.btn_inventory");
-            IWebElement addToCartButton = _driver.FindElement(addToCartButtonLocator);
+            IWebElement addToCartButton = FindElement(addToCartButtonLocator);
             addToCartButton.Click();
         }
 
