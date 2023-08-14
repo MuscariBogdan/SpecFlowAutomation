@@ -1,46 +1,71 @@
-# SpecFlowAutomation
+# Login Automation Test Suite
 
-# SpecFlow Automation with Page Object Model (POM)
-
-This repository contains an example project for SpecFlow automation using the Page Object Model (POM) design pattern. The project demonstrates how to automate login functionality and add items to the shopping cart on a sample e-commerce website.
+This suite is designed to automate the testing of login, cart management, checkout, and sorting functionality for an e-commerce website. The tests are written using SpecFlow and Selenium WebDriver.
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Usage](#usage)
-
-## Introduction
-
-This project is a demonstration of how to use SpecFlow with Selenium WebDriver to create automated test scenarios. It uses the Page Object Model (POM) design pattern to improve the maintainability and readability of the test code.
-
-## Prerequisites
-
-To run this project, you need the following tools and dependencies:
-
-- Visual Studio with SpecFlow plugin
-- .NET Framework
-- Chrome WebDriver (included in the project)
-- SpecFlow and NUnit packages (already included in the project)
+- [Features](#features)
+- [Page Objects](#page-objects)
+- [Step Definitions](#step-definitions)
+- [Configurations](#configurations)
+- [Running Tests](#running-tests)
 
 ## Getting Started
 
-1. Clone the repository to your local machine.
-2. Open the solution in Visual Studio.
-3. Build the solution to restore packages.
-4. Open Test Explorer and run the SpecFlow scenarios.
+To get started with the test suite, follow these steps:
 
-## Project Structure
+1. Clone this repository to your local machine.
+2. Install the required dependencies, including SpecFlow and Selenium WebDriver.
+3. Configure the `appsettings.json` file with your desired settings.
+4. Run the tests using the provided test runners.
 
-The project follows a structured organization with separate folders for page objects, step definitions, and feature files.
+## Features
 
-- **LoginAutomation**
-  - **Feature**: Contains the Gherkin feature files with test scenarios.
-  - **PageObjects**: Contains classes that represent the web pages using the Page Object Model.
-  - **StepDefinitions**: Contains classes with step definitions for the SpecFlow scenarios.
+The test suite includes the following features:
 
-## Usage
+- **Login:** Automated login scenarios for successful and unsuccessful login attempts.
 
-To run the automated tests, simply build the solution and execute the SpecFlow scenarios using Test Explorer in Visual Studio. The tests will run using Chrome WebDriver by default.
+- **Add to Cart:** Scenarios for adding items to the shopping cart.
+
+- **Checkout:** Automated checkout process, including entering shipping information, reviewing the order, and completing the purchase.
+
+- **Logout:** Testing the logout functionality.
+
+- **Remove Items from Cart:** Testing the removal of items from the shopping cart.
+
+- **Sorting Items:** Sorting items from A to Z on the product listing page.
+
+## Page Objects
+
+The test suite follows the Page Object Model design pattern, separating page actions from step definitions. Key page objects include:
+
+- `LoginPage`: Represents the login page and provides methods for login actions.
+- `ProductListingPage`: Represents the product listing page and provides methods for interacting with products and sorting options.
+- `ProductDetailsPage`: Represents the product details page and provides methods for adding items to the cart.
+- `ShoppingCartPage`: Represents the shopping cart page and provides methods for managing cart items and proceeding to checkout.
+- `CheckoutPage`: Represents the checkout page and provides methods for completing the checkout process.
+
+## Step Definitions
+
+Step definitions are organized by feature and include:
+
+- **LoginStepDefinitions:** Steps for testing the login functionality.
+- **AddToCartStepDefinitions:** Steps for adding items to the shopping cart.
+- **CheckoutStepDefinitions:** Steps for testing the checkout process.
+- **LogoutStepDefinitions:** Steps for testing the logout functionality.
+- **RemoveItemsFromCartStepDefinitions:** Steps for removing items from the shopping cart.
+- **SortingItemsFromAToZStepDefinitions:** Steps for sorting items on the product listing page.
+
+## Configurations
+
+- `AppConfig`: Configuration class to read settings from `appsettings.json`, including base URL, credentials, and other configuration options.
+
+## Running Tests
+
+To run the tests, use the provided test runners:
+
+- Execute the test suite using SpecFlow or a continuous integration tool (e.g., Jenkins, Azure DevOps).
+- Optionally, configure and customize the test execution environment (e.g., browsers, parallel execution).
+
+Happy testing!
